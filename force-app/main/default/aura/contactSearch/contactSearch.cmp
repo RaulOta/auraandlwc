@@ -1,9 +1,11 @@
 <aura:component controller="ContactSearchController">
   <aura:attribute type="String" name="searchString"/>
   <aura:attribute type="Contact[]" name="contactList"/>
+  <aura:attribute type="Contact[]" name="selectContacts"/>
   <aura:attribute type="List" name="mycolumns"/>
 
   <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+  <aura:handler name="selectedContact" event="c:contactSelectedEvt" action="{!c.handlerComponentEvent}"/>
   
   <div style="margin:20px">
     <div class="slds-grid slds-gutters">
@@ -37,5 +39,13 @@
         </aura:iteration>
       </tbody>
     </table>
+
+    <div style="margin-top:50px">
+      <h1><strong>You've selected the following contacts</strong></h1><br/>
+      <aura:iteration items="{!v.selectContacts}" var="selContact">
+        {!selContact.FirstName}<br/>
+        {!selContact.LastName}<br/>
+      </aura:iteration>
+    </div>
   </div>
 </aura:component>	

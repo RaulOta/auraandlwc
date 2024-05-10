@@ -2,9 +2,11 @@
   <aura:attribute type="Contact" name="thisContact"/>
   <aura:attribute type="Boolean" name="isSelected" default="false" />
 
+  <aura:registerEvent name="selectedContact" type="c:contactSelectedEvt"/>
+
   <tr>
     <td>
-      <ui:inputCheckbox aura:id="checkbox" value="{!v.isSelected}"/>
+      <ui:inputCheckbox aura:id="checkbox" value="{!v.isSelected}" change="{!c.onCheck}"/>
     </td>
     <td>
       {!v.thisContact.FirstName}
