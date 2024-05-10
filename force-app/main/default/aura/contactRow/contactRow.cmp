@@ -1,0 +1,16 @@
+<aura:component>
+  <aura:attribute type="Contact" name="thisContact"/>
+  <aura:attribute type="Boolean" name="isSelected" default="false" />
+
+  <tr>
+    <td>
+      <ui:inputCheckbox aura:id="checkbox" value="{!v.isSelected}"/>
+    </td>
+    <td>
+      {!v.thisContact.FirstName}
+    </td>
+    <td>
+      {!v.thisContact.LastName}
+    </td>
+  </tr>
+</aura:component>	
